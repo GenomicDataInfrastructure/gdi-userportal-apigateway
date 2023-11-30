@@ -1,0 +1,22 @@
+POST http://localhost:7001/v2.0.0/individuals
+Content-Type: application/json
+
+{
+   "meta":{
+      "apiVersion":"2.0"
+   },
+   "query":{
+      "filters":[
+         {
+            "id":"NCIT:C16352"
+         }
+      ],
+      "includeResultsetResponses":"HIT",
+      "pagination":{
+         "skip":0,
+         "limit":0
+      },
+      "testMode":false,
+      "requestedGranularity":"record"
+   }
+}

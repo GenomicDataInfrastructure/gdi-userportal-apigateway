@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  beacon_mock:
+    build: beacon-mock/
+    ports:
+      - 7001:8000
+    restart: unless-stopped
+    networks:
+      - apigateway-net
+  catalogue_mock:
+    build: catalogue-mock/
+    ports:
+      - 7002:8000
+    restart: unless-stopped
+    networks:
+      - apigateway-net
+  rems_mock:
+    build: rems-mock/
+    ports:
+      - 7003:8000
+    restart: unless-stopped
+    networks:
+      - apigateway-net
+
+networks:
+  apigateway-net:
+    driver: bridge
