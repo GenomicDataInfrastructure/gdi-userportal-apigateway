@@ -1,0 +1,47 @@
+_format_version: "2.1"
+
+services:
+  - name: beacon-individuals-service
+    url: http://beacon_mock:8000/v2.0.0/individuals
+#    plugins:
+#    - name: key-auth
+  - name: catalogue-search-service
+    url: http://catalogue_mock:8000/api/3/action/package_search
+#    plugins:
+#    - name: key-auth
+  - name: rems-myappplications-service
+    url: http://rems_mock:8000/api/my-applications
+    plugins:
+    - name: rewrite-rems
+#    - name: key-auth
+
+routes:
+  - name: beacon-individuals-route
+    paths:
+      - /api/v1/individuals
+    service: beacon-individuals-service
+  - name: catalogue-search-route
+    paths:
+      - /api/v1/datasets
+    service: catalogue-search-service
+  - name: rems-myappplications-route
+    paths:
+      - /api/v1/applications
+    service: rems-myappplications-service
+
+plugins:
+  - name: rate-limiting
+    config:
+      minute: 5
+      policy: local
+
+#consumers:
+#  - username: user123
+#    custom_id: SOME_CUSTOM_ID
+#
+#keyauth_credentials:
+#  - consumer: user123
+#    ttl: 5000
+#    tags:
+#      - example_tag
+#    key: example_apikey
