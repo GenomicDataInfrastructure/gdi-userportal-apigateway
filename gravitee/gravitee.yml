@@ -1,0 +1,27 @@
+analytics:
+  type: elasticsearch
+  elasticsearch:
+    endpoints:
+      - http://localhost:9200
+
+management:
+  type: mongodb
+  mongodb:
+    dbname: gravitee
+    host: localhost
+    port: 27017
+
+ratelimit:
+  type: redis
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: -1
+    ssl: false
+
+endpoints:
+  - name: catalogue-mock
+    target: http://localhost:8000/api/3/action/package_search
+    paths:
+      - /gateway-api/v1/
