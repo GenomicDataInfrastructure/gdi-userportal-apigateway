@@ -1,0 +1,31 @@
+name: "Test"
+
+concurrency:
+  group: ${{ github.workflow }} ${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+on:
+  pull_request: {}
+  push:
+    branches:
+    - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        kongVersion:
+        - "2.8.x"
+        - "3.0.x"
+        - "dev"
+        - "3.0.0.x"
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: Kong/kong-pongo-action@v1
+      with:
+        kong_version: ${{ matrix.kongVersion }}
+    - run: pongo run

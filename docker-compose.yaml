@@ -22,6 +22,33 @@ services:
     restart: unless-stopped
     networks:
       - apigateway-net
+  kong:
+    image: kong/kong-gateway:latest
+    container_name: kong
+    networks:
+      - apigateway-net
+    environment:
+      KONG_LOG_LEVEL: debug
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yml
+      KONG_PROXY_LISTEN: 0.0.0.0:8000
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+      KONG_ADMIN_GUI_PATH: /manager
+      KONG_ADMIN_GUI_URL: http://localhost:8002/manager
+      KONG_LUA_PACKAGE_PATH: /usr/local/custom/?.lua;;
+      KONG_PLUGINS: bundled,rewrite-rems
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 1s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./kong/plugins:/usr/local/custom/kong/plugins:rw
+      - ./kong/kong.yml:/etc/kong/kong.yml
 
 networks:
   apigateway-net:
