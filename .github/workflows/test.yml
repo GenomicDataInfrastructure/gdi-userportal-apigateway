@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: "Test"
+name: "Run Tests"
 
 concurrency:
   group: ${{ github.workflow }} ${{ github.ref }}
@@ -28,8 +28,31 @@ jobs:
         - "3.0.0.x"
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: Kong/kong-pongo-action@v1
       with:
         kong_version: ${{ matrix.kongVersion }}
     - run: pongo run
+
+  luacheck:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: LuaCheck linter
+      uses: lunarmodules/luacheck@master
+
+  reuse:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: REUSE Compliance Check
+      uses: fsfe/reuse-action@v2
+        

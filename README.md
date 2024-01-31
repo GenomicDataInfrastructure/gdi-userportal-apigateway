@@ -5,8 +5,8 @@ SPDX-License-Identifier: CC-BY-4.0
 -->
 
 [![REUSE status](https://api.reuse.software/badge/github.com/GenomicDataInfrastructure/gdi-userportal-apigateway)](https://api.reuse.software/info/github.com/GenomicDataInfrastructure/gdi-userportal-apigateway)
-![example workflow](https://github.com/GenomicDataInfrastructure/gdi-userportal-apigateway/actions/workflows/lint.yml/badge.svg)
-![example workflow](https://github.com/GenomicDataInfrastructure/gdi-userportal-apigateway/actions/workflows/release-package.yml/badge.svg)
+![example workflow](https://github.com/GenomicDataInfrastructure/gdi-userportal-apigateway/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/GenomicDataInfrastructure/gdi-userportal-apigateway/actions/workflows/release.yml/badge.svg)
 ![example workflow](https://github.com/GenomicDataInfrastructure/gdi-userportal-apigateway/actions/workflows/test.yml/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=GenomicDataInfrastructure_gdi-userportal-apigateway&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=GenomicDataInfrastructure_gdi-userportal-apigateway)
 [![GitHub contributors](https://img.shields.io/github/contributors/GenomicDataInfrastructure/gdi-userportal-apigateway)](https://github.com/GenomicDataInfrastructure/gdi-userportal-apigateway/graphs/contributors)
