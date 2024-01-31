@@ -1,3 +1,7 @@
+-- SPDX-FileCopyrightText: 2024 PNED G.I.E.
+--
+-- SPDX-License-Identifier: Apache-2.0
+
 local cjson = require("cjson.safe").new()
 local cjson_encode = cjson.encode
 local remove_element = table.remove

@@ -1,1 +1,5 @@
+# SPDX-FileCopyrightText: 2024 PNED G.I.E.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 GET http://localhost:7002/api/3/action/package_search?start=0&rows=5

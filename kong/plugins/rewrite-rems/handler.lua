@@ -1,3 +1,7 @@
+-- SPDX-FileCopyrightText: 2024 PNED G.I.E.
+--
+-- SPDX-License-Identifier: Apache-2.0
+
 local body_transformer = require "kong.plugins.rewrite-rems.body_transformer"
 local transform_json_body = body_transformer.transform_json_body
 local cjson = require("cjson.safe").new()

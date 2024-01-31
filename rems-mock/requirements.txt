@@ -1,2 +1,6 @@
+# SPDX-FileCopyrightText: 2024 PNED G.I.E.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 fastapi==0.103.2
 uvicorn==0.23.2

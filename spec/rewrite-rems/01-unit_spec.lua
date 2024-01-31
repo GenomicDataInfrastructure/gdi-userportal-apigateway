@@ -1,3 +1,7 @@
+-- SPDX-FileCopyrightText: 2024 PNED G.I.E.
+--
+-- SPDX-License-Identifier: Apache-2.0
+
 describe("body_transformer.transform_json_body", function()
   it("parse serialised REMS input into json object", function()
     local cjson = require "cjson"

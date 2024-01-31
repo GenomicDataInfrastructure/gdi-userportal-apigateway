@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 PNED G.I.E.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 POST http://localhost:7001/v2.0.0/individuals
 Content-Type: application/json
 
